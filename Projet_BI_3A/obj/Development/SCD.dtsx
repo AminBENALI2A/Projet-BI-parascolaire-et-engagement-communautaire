@@ -1,0 +1,2134 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/24/2024 3:25:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-P3874IO"
+  DTS:CreatorName="DESKTOP-P3874IO\Amin"
+  DTS:DTSID="{4C366C1A-6770-4508-9355-2CB6D3252692}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{25383018-918E-424A-A6B0-CC44547B67EE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E393BB8D-77E0-4A5A-8338-71B526B010B8}"
+      DTS:ObjectName="localhost\THENEWONE.ActivityDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\THENEWONE;Initial Catalog=ActivityDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E393BB8D-77E0-4A5A-8338-71B526B010B8}localhost\THENEWONE.ActivityDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Students]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{79ACDF10-8764-45AF-B5E1-FEC2956B7A4C}"
+      DTS:ObjectName="Students">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::Student]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\Amin\OneDrive\Desktop\Code\Test\Data\Eleves\Etablissement 1-1_Students.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Teachers]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{11E63A4F-67AE-47EF-B6C2-D7022FC58611}"
+      DTS:ObjectName="Teachers">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::Teachers]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\Amin\OneDrive\Desktop\Code\Test\Data\Teachers\Etablissement 1-1_Teachers.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C491FB27-77D9-4D3C-822E-0F7C6EA63B6E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Student">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Amin\OneDrive\Desktop\Code\Test\Data\Eleves\Etablissement 1-1_Students.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7B565DA-43A3-4A99-A53E-D96A2EAE4A57}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Teachers">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Amin\OneDrive\Desktop\Code\Test\Data\Teachers\Etablissement 1-1_Teachers.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SCD Eleve dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{ACA1BC68-B2F7-4893-B023-B52153069368}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SCD Eleve dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SCD Eleve dimension\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimEleve] SET [Age] = ? WHERE [source_key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Eleve dimension\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BE7813C3-D9F2-4B9E-AD54-59EEA297EE2F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost_THENEWONE.ActivityDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]" />
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[EleveKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EleveKey"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EleveKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="i2"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Eleve dimension\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SCD Eleve dimension\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Conversion de données.Inputs[Entrée de conversion de données].Columns[Age]"
+                      cachedDataType="i4"
+                      cachedName="Age"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\SCD Eleve dimension\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]"
+                      name="Copy of Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\SCD Eleve dimension\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Eleve dimension\Destination d'insertion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination d'insertion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimEleve]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Eleve dimension\Destination d'insertion.Connections[OleDbConnection]"
+                  connectionManagerID="{BE7813C3-D9F2-4B9E-AD54-59EEA297EE2F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost_THENEWONE.ActivityDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[Nom_Eleve]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nom_Eleve"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_élève]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Eleve]" />
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]" />
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[Parent1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Parent1"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Parent1]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent1]" />
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[Parent2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Parent2"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Parent2]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent2]" />
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[EleveKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EleveKey"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[source_key]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EleveKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[EleveKey]"
+                      dataType="i4"
+                      name="EleveKey" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_élève]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nom_élève" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      dataType="i2"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Parent1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent1" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Parent2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent2" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[source_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Eleve dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Eleve dimension\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Age], [Nom_élève], [Parent1], [Parent2], [source_key] FROM [dbo].[DimEleve]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="{BE7813C3-D9F2-4B9E-AD54-59EEA297EE2F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost_THENEWONE.ActivityDW]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Age]"
+                      lineageId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[Nom_Eleve]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nom_Eleve"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Nom_élève]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Eleve]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[Parent1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Parent1"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Parent1]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[Parent2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Parent2"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Parent2]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[EleveKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EleveKey"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[source_key]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EleveKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Age]"
+                      dataType="i2"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Nom_élève]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nom_élève" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Parent1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent1" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Parent2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent2" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[source_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Eleve dimension\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Students]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Eleve dimension\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{5DDE6403-A668-4479-A9AC-112B7A4F7272}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost_THENEWONE.StagingAreaActivity]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EleveKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EleveKey]"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EleveKey]"
+                      name="EleveKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Eleve]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nom_Eleve]"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Eleve]"
+                      name="Nom_Eleve"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Parent1]"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent1]"
+                      name="Parent1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Parent2]"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Parent2]"
+                      name="Parent2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EleveKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EleveKey" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EtablissementName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EtablissementName" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RegionName" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nom_Eleve]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nom_Eleve" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Parent1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent1" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Parent2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Parent2" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[NiveauScolaire]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NiveauScolaire" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[EleveKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[EleveKey]"
+                      name="EleveKey" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nom_Eleve]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nom_Eleve]"
+                      name="Nom_Eleve" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent1]"
+                      name="Parent1" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent2]"
+                      name="Parent2" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SCD Eleve dimension.Paths[Nouvelle sortie]"
+              endId="Package\SCD Eleve dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\SCD Eleve dimension.Paths[Sortie de conversion de données]"
+              endId="Package\SCD Eleve dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de conversion de données"
+              startId="Package\SCD Eleve dimension\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\SCD Eleve dimension.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\SCD Eleve dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\SCD Eleve dimension\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\SCD Eleve dimension.Paths[Sortie de source OLE DB]"
+              endId="Package\SCD Eleve dimension\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\SCD Eleve dimension\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SCD Enseignant Dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{92193F89-B1D1-4115-BBDA-A68140CFAE4C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SCD Enseignant Dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SCD Enseignant Dimension\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimEnseignant] SET [Age] = ? WHERE [source_key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Enseignant Dimension\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]" />
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[EnseignantKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EnseignantKey"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EnseignantKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="i2"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Enseignant Dimension\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SCD Enseignant Dimension\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Conversion de données.Inputs[Entrée de conversion de données].Columns[Age]"
+                      cachedDataType="i4"
+                      cachedName="Age"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]"
+                      name="Copy of Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Enseignant Dimension\Destination d'insertion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination d'insertion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimEnseignant]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Enseignant Dimension\Destination d'insertion.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[NomEnseignant]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NomEnseignant"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NomEnseignant]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NomEnseignant]" />
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]" />
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[EnseignantKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EnseignantKey"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[source_key]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EnseignantKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[EnseignantKey]"
+                      dataType="i4"
+                      name="EnseignantKey" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NomEnseignant]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NomEnseignant" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      dataType="i2"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[source_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Enseignant Dimension\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Age], [NomEnseignant], [source_key] FROM [dbo].[DimEnseignant]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\THENEWONE.ActivityDW]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[Copy of Age]"
+                      cachedDataType="i2"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Age]"
+                      lineageId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copy of Age]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[NomEnseignant]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NomEnseignant"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NomEnseignant]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NomEnseignant]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[EnseignantKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EnseignantKey"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[source_key]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EnseignantKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Age]"
+                      dataType="i2"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NomEnseignant]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NomEnseignant" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[source_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Enseignant Dimension\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Teachers]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Enseignant Dimension\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{5DDE6403-A668-4479-A9AC-112B7A4F7272}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost_THENEWONE.StagingAreaActivity]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EnseignantKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EnseignantKey]"
+                      length="255"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[EnseignantKey]"
+                      name="EnseignantKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NomEnseignant]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[NomEnseignant]"
+                      length="255"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NomEnseignant]"
+                      name="NomEnseignant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EnseignantKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EnseignantKey" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[EtablissementName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EtablissementName" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RegionName" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[NomEnseignant]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NomEnseignant" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[EnseignantKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[EnseignantKey]"
+                      name="EnseignantKey" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[NomEnseignant]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[NomEnseignant]"
+                      name="NomEnseignant" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SCD Enseignant Dimension.Paths[Nouvelle sortie]"
+              endId="Package\SCD Enseignant Dimension\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\SCD Enseignant Dimension.Paths[Sortie de conversion de données]"
+              endId="Package\SCD Enseignant Dimension\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de conversion de données"
+              startId="Package\SCD Enseignant Dimension\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\SCD Enseignant Dimension.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\SCD Enseignant Dimension\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\SCD Enseignant Dimension\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\SCD Enseignant Dimension.Paths[Sortie de source OLE DB]"
+              endId="Package\SCD Enseignant Dimension\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\SCD Enseignant Dimension\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{359DDAC5-A545-4828-9F34-5A4D68204273}"
+      DTS:From="Package\SCD Eleve dimension"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\SCD Enseignant Dimension" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SCD Eleve dimension"
+          TopLeft="217.5,84.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SCD Enseignant Dimension"
+          TopLeft="212.5,190.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="306.5,126.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,64"
+              Start="0,0"
+              End="9,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,32"
+                    Point2="9,32"
+                    Point3="9,36" />
+                  <mssgle:LineSegment
+                    End="9,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SCD Eleve dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SCD Eleve dimension\Source OLE DB"
+          TopLeft="260.5,5.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SCD Eleve dimension\Dimension à variation lente"
+          TopLeft="232,209.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SCD Eleve dimension\Conversion de données"
+          TopLeft="241,107.5" />
+        <EdgeLayout
+          Id="Package\SCD Eleve dimension.Paths[Sortie de source OLE DB]"
+          TopLeft="335.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SCD Eleve dimension.Paths[Sortie de conversion de données]"
+          TopLeft="335.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SCD Eleve dimension\Destination d'insertion"
+          TopLeft="68.5000000000001,307.5" />
+        <EdgeLayout
+          Id="Package\SCD Eleve dimension.Paths[Nouvelle sortie]"
+          TopLeft="302.333333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-141.833333333333,56"
+              Start="0,0"
+              End="-141.833333333333,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6577181208054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6577181208054"
+                    Point2="0,22.6577181208054"
+                    Point3="-4,22.6577181208054" />
+                  <mssgle:LineSegment
+                    End="-137.833333333333,22.6577181208054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-137.833333333333,22.6577181208054"
+                    Point2="-141.833333333333,22.6577181208054"
+                    Point3="-141.833333333333,26.6577181208054" />
+                  <mssgle:LineSegment
+                    End="-141.833333333333,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-104.053014322917,27.6577181208054,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SCD Eleve dimension\Commande OLE DB"
+          TopLeft="335,304.5" />
+        <EdgeLayout
+          Id="Package\SCD Eleve dimension.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="368.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.8333333333333,53"
+              Start="0,0"
+              End="51.8333333333333,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4439117929051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4439117929051"
+                    Point2="0,21.4439117929051"
+                    Point3="4,21.4439117929051" />
+                  <mssgle:LineSegment
+                    End="47.8333333333333,21.4439117929051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.8333333333333,21.4439117929051"
+                    Point2="51.8333333333333,21.4439117929051"
+                    Point3="51.8333333333333,25.4439117929051" />
+                  <mssgle:LineSegment
+                    End="51.8333333333333,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.9159309895833,26.4439117929051,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Eleve dimension\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Eleve dimension\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{BE7813C3-D9F2-4B9E-AD54-59EEA297EE2F}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimEleve]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversion de données.Sorties[Sortie de conversion de données].Colonnes[Copy of Age]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Age&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[Nom_Eleve]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nom_élève&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[Parent1]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Parent1&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[Parent2]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Parent2&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[EleveKey]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;source_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SCD Enseignant Dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SCD Enseignant Dimension\Source OLE DB"
+          TopLeft="260.5,5.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SCD Enseignant Dimension\Dimension à variation lente"
+          TopLeft="232,209.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SCD Enseignant Dimension\Conversion de données"
+          TopLeft="241,107.5" />
+        <EdgeLayout
+          Id="Package\SCD Enseignant Dimension.Paths[Sortie de source OLE DB]"
+          TopLeft="335.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SCD Enseignant Dimension.Paths[Sortie de conversion de données]"
+          TopLeft="335.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SCD Enseignant Dimension\Destination d'insertion"
+          TopLeft="81.5000000000001,316.5" />
+        <EdgeLayout
+          Id="Package\SCD Enseignant Dimension.Paths[Nouvelle sortie]"
+          TopLeft="302.333333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.833333333333,65"
+              Start="0,0"
+              End="-128.833333333333,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2991371045062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2991371045062"
+                    Point2="0,26.2991371045062"
+                    Point3="-4,26.2991371045062" />
+                  <mssgle:LineSegment
+                    End="-124.833333333333,26.2991371045062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.833333333333,26.2991371045062"
+                    Point2="-128.833333333333,26.2991371045062"
+                    Point3="-128.833333333333,30.2991371045062" />
+                  <mssgle:LineSegment
+                    End="-128.833333333333,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-97.5530143229167,31.2991371045062,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SCD Enseignant Dimension\Commande OLE DB"
+          TopLeft="384,313.5" />
+        <EdgeLayout
+          Id="Package\SCD Enseignant Dimension.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="368.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.833333333333,62"
+              Start="0,0"
+              End="100.833333333333,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0853307766059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0853307766059"
+                    Point2="0,25.0853307766059"
+                    Point3="4,25.0853307766059" />
+                  <mssgle:LineSegment
+                    End="96.8333333333333,25.0853307766059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.8333333333333,25.0853307766059"
+                    Point2="100.833333333333,25.0853307766059"
+                    Point3="100.833333333333,29.0853307766059" />
+                  <mssgle:LineSegment
+                    End="100.833333333333,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.4159309895833,30.0853307766059,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Enseignant Dimension\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Enseignant Dimension\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{E393BB8D-77E0-4A5A-8338-71B526B010B8}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimEnseignant]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversion de données.Sorties[Sortie de conversion de données].Colonnes[Copy of Age]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Age&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[NomEnseignant]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NomEnseignant&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[EnseignantKey]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;source_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

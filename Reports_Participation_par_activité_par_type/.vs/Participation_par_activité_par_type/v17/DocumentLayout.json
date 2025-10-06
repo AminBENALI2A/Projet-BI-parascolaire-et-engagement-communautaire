@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34020BD3-50C6-4463-8768-83DE6EE5DDD5}|Participation_par_activit\u00E9_par_type.rptproj|C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Report2.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{34020BD3-50C6-4463-8768-83DE6EE5DDD5}|Participation_par_activit\u00E9_par_type.rptproj|solutionrelative:Report2.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34020BD3-50C6-4463-8768-83DE6EE5DDD5}|Participation_par_activit\u00E9_par_type.rptproj|C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Participation par activit\u00E9 et par type.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{34020BD3-50C6-4463-8768-83DE6EE5DDD5}|Participation_par_activit\u00E9_par_type.rptproj|solutionrelative:Participation par activit\u00E9 et par type.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Report2.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Report2.rdl",
+              "RelativeDocumentMoniker": "Report2.rdl",
+              "ToolTip": "C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Report2.rdl [Design]",
+              "RelativeToolTip": "Report2.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-11T22:06:50.309Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Participation par activit\u00E9 et par type.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Participation par activit\u00E9 et par type.rdl",
+              "RelativeDocumentMoniker": "Participation par activit\u00E9 et par type.rdl",
+              "ToolTip": "C:\\Users\\belgh\\data_viz_and_dashboarding\\project\\Participation_par_activit\u00E9_par_type\\Participation par activit\u00E9 et par type.rdl [Design]",
+              "RelativeToolTip": "Participation par activit\u00E9 et par type.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-11T17:40:26.529Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

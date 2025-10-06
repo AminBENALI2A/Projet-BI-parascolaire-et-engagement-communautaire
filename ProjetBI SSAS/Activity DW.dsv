@@ -1,0 +1,357 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4ce5118e-4473-4812-96bf-fa24d03b0b1d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Activity DW</ID>
+  <Name>Activity DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:NameMatchingCriteria</Name>
+      <Value>1</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Activity DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Activity_x0020_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Activity_x0020_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="752ec4ca-ab99-43f2-8e0b-c1f68da9ef76">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_ActiviteFact" msprop:DbTableName="ActiviteFact" msprop:FriendlyName="ActiviteFact" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="678cf2ab-0172-4e81-bc06-22e5d1cef796">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ActiviteFactKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="ActiviteFactKey" msprop:DbColumnName="ActiviteFactKey" msprop:design-time-name="381a7bcf-b9d1-4a67-ab1c-692fbbe93e01" type="xs:int" />
+                  <xs:element name="ActiviteKey" msprop:FriendlyName="ActiviteKey" msprop:DbColumnName="ActiviteKey" msprop:design-time-name="874ec5c5-1c3c-449d-a718-56b63d15e781" type="xs:int" />
+                  <xs:element name="TempsKey" msprop:FriendlyName="TempsKey" msprop:DbColumnName="TempsKey" msprop:design-time-name="0934f8ce-d8f8-4a41-a3be-5771ceae8bff" type="xs:int" />
+                  <xs:element name="EtablissementKey" msprop:FriendlyName="EtablissementKey" msprop:DbColumnName="EtablissementKey" msprop:design-time-name="9bba60bf-60f9-4024-8e20-2133733af6b2" type="xs:int" />
+                  <xs:element name="RegionKey" msprop:FriendlyName="RegionKey" msprop:DbColumnName="RegionKey" msprop:design-time-name="c725b780-bad1-418d-baee-6517752e361c" type="xs:int" />
+                  <xs:element name="CategorieActiviteKey" msprop:FriendlyName="CategorieActiviteKey" msprop:DbColumnName="CategorieActiviteKey" msprop:design-time-name="5a8e583c-7896-4ed4-b736-82eb41190f72" type="xs:int" />
+                  <xs:element name="EffectifPresent" msprop:FriendlyName="EffectifPresent" msprop:DbColumnName="EffectifPresent" msprop:design-time-name="0b3be1e8-2018-4338-92dc-d63db723e248" type="xs:int" />
+                  <xs:element name="EffectifAttendu" msprop:FriendlyName="EffectifAttendu" msprop:DbColumnName="EffectifAttendu" msprop:design-time-name="e22dcb5f-5250-4a35-a607-a23abba97884" type="xs:int" />
+                  <xs:element name="TypeIndividu" msprop:FriendlyName="TypeIndividu" msprop:DbColumnName="TypeIndividu" msprop:design-time-name="69ddad8b-0a9d-453a-9c87-9df75b2f8a54" type="xs:short" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimActivite" msprop:DbTableName="DimActivite" msprop:FriendlyName="DimActivite" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="fbbe99c2-6aff-4c64-b744-3481d15dd965">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ActiviteKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="ActiviteKey" msprop:DbColumnName="ActiviteKey" msprop:design-time-name="3bc1ef2a-f366-4ba2-92ed-3645874f64f2" type="xs:int" />
+                  <xs:element name="DescriptionActivité" msprop:FriendlyName="DescriptionActivité" msprop:DbColumnName="DescriptionActivité" msprop:design-time-name="f979121f-11f7-4869-bcff-e8d2b18f0d63" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sourceKey" msprop:FriendlyName="sourceKey" msprop:DbColumnName="sourceKey" msprop:design-time-name="962192e9-3809-4e14-aae8-732edc32a4c0" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TempsKey" msprop:FriendlyName="TempsKey" msprop:DbColumnName="TempsKey" msprop:design-time-name="8b115482-27bd-4fbd-8038-e7d50d6ab341" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimCategorieActivite" msprop:DbTableName="DimCategorieActivite" msprop:FriendlyName="DimCategorieActivite" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="5a611826-aae1-4fa0-9f44-f9d5d1e53e44">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CategorieActiviteKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="CategorieActiviteKey" msprop:DbColumnName="CategorieActiviteKey" msprop:design-time-name="ff409f82-6b35-4a87-bef9-3b4e850128c5" type="xs:int" />
+                  <xs:element name="NomCategorie" msprop:FriendlyName="NomCategorie" msprop:DbColumnName="NomCategorie" msprop:design-time-name="b4110319-5559-418f-a585-5fbdc7044c5b">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="source_key" msprop:FriendlyName="source_key" msprop:DbColumnName="source_key" msprop:design-time-name="51c02ec6-9d82-423c-bf3f-2a940df38837" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimEleve" msprop:DbTableName="DimEleve" msprop:FriendlyName="DimEleve" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="63bea681-f9fa-4c11-985f-5bc1b79d1f90">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EleveKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EleveKey" msprop:DbColumnName="EleveKey" msprop:design-time-name="6304723d-0152-45ca-93b2-f1f2191f3df3" type="xs:int" />
+                  <xs:element name="Nom_élève" msprop:FriendlyName="Nom_élève" msprop:DbColumnName="Nom_élève" msprop:design-time-name="9a080757-ebb4-4652-941b-1658202b1a43">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Age" msprop:FriendlyName="Age" msprop:DbColumnName="Age" msprop:design-time-name="a9a41831-e7a8-4ad0-91ec-6a4b441047b0" type="xs:short" />
+                  <xs:element name="Parent1" msprop:FriendlyName="Parent1" msprop:DbColumnName="Parent1" msprop:design-time-name="f5be9eba-d9c9-42b7-9733-265506bcc677" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Parent2" msprop:FriendlyName="Parent2" msprop:DbColumnName="Parent2" msprop:design-time-name="75c83914-bdd4-488d-9c1d-091fe314a5e4" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="source_key" msprop:FriendlyName="source_key" msprop:DbColumnName="source_key" msprop:design-time-name="11cfac5d-f79a-43e3-90c0-f3f2e0c68389" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimEnseignant" msprop:DbTableName="DimEnseignant" msprop:FriendlyName="DimEnseignant" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="505b03ae-ef1a-4889-a322-988fa86c8b7c">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EnseignantKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EnseignantKey" msprop:DbColumnName="EnseignantKey" msprop:design-time-name="ed644f23-5b8a-4716-a0ad-5c4d8631e76f" type="xs:int" />
+                  <xs:element name="NomEnseignant" msprop:FriendlyName="NomEnseignant" msprop:DbColumnName="NomEnseignant" msprop:design-time-name="05acd45e-6aef-4ece-bfdc-3a258bb07ba5">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Age" msprop:FriendlyName="Age" msprop:DbColumnName="Age" msprop:design-time-name="615df260-c073-4617-a558-3a6c553a59f7" type="xs:short" />
+                  <xs:element name="source_key" msprop:FriendlyName="source_key" msprop:DbColumnName="source_key" msprop:design-time-name="b896d463-12d3-4172-b8a1-442be5adc3b8" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimEtablissement" msprop:DbTableName="DimEtablissement" msprop:FriendlyName="DimEtablissement" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="2de64932-c52a-4a59-9bec-6d69fd5c10a1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EtablissementKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EtablissementKey" msprop:DbColumnName="EtablissementKey" msprop:design-time-name="151fdff2-15f6-420b-a5fc-87734ea10839" type="xs:int" />
+                  <xs:element name="Nom" msprop:FriendlyName="Nom" msprop:DbColumnName="Nom" msprop:design-time-name="31c39900-8247-45a6-9b20-05d34e3366ea">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Adresse" msprop:FriendlyName="Adresse" msprop:DbColumnName="Adresse" msprop:design-time-name="4cc2f517-fb94-400d-8d17-a604c1171472">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="source_key" msprop:FriendlyName="source_key" msprop:DbColumnName="source_key" msprop:design-time-name="df73e0aa-b0da-40d7-a277-94ec039bb396" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimNiveauScolaire" msprop:DbTableName="DimNiveauScolaire" msprop:FriendlyName="DimNiveauScolaire" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="c98113b8-86e4-4dc3-bc36-f736205c8706">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NiveauScolaireKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="NiveauScolaireKey" msprop:DbColumnName="NiveauScolaireKey" msprop:design-time-name="8a751017-1e01-4771-87fe-67b220c09083" type="xs:int" />
+                  <xs:element name="NomNiveauScolaire" msprop:FriendlyName="NomNiveauScolaire" msprop:DbColumnName="NomNiveauScolaire" msprop:design-time-name="fb8333ff-38b3-45d6-894e-1b3bf3d6d688">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimRegion" msprop:DbTableName="DimRegion" msprop:FriendlyName="DimRegion" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="52c5be80-e940-4fec-81dc-7a6bf0c6419f">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RegionKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="RegionKey" msprop:DbColumnName="RegionKey" msprop:design-time-name="c73b8121-0fbb-4f00-971f-e94e7da722bb" type="xs:int" />
+                  <xs:element name="Nom" msprop:FriendlyName="Nom" msprop:DbColumnName="Nom" msprop:design-time-name="fef2edf2-2442-4f24-ae33-132d8293aa6b">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="source_key" msprop:FriendlyName="source_key" msprop:DbColumnName="source_key" msprop:design-time-name="deb2a55f-c65f-4786-bfbb-812c7737ae7b" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimTemps" msprop:DbTableName="DimTemps" msprop:FriendlyName="DimTemps" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="a588020f-bf99-4840-a889-eeab7ccd2936">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TempsKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="TempsKey" msprop:DbColumnName="TempsKey" msprop:design-time-name="5b546de5-e717-4a64-9253-bb180943d660" type="xs:int" />
+                  <xs:element name="JourSemaine" msprop:FriendlyName="JourSemaine" msprop:DbColumnName="JourSemaine" msprop:design-time-name="67507fc9-7808-47c1-824b-485f6bd66db1" type="xs:short" />
+                  <xs:element name="JourMois" msprop:FriendlyName="JourMois" msprop:DbColumnName="JourMois" msprop:design-time-name="d655c52b-0a69-4e55-b1f0-1ee093d1f7c4" type="xs:short" />
+                  <xs:element name="Semestre" msprop:FriendlyName="Semestre" msprop:DbColumnName="Semestre" msprop:design-time-name="5cd10043-fd5c-427e-8b41-860631da6640" type="xs:short" />
+                  <xs:element name="Mois" msprop:FriendlyName="Mois" msprop:DbColumnName="Mois" msprop:design-time-name="773bee70-fffe-41dc-b41c-e01cec9ccc2f" type="xs:short" />
+                  <xs:element name="AnneeScolaire" msprop:FriendlyName="AnneeScolaire" msprop:DbColumnName="AnneeScolaire" msprop:design-time-name="8ac96073-9c9b-493c-b224-170c1d41183f">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_EleveFact" msprop:DbTableName="EleveFact" msprop:FriendlyName="EleveFact" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="39e32c52-b1d7-4393-8c32-9bcf5bf89cd8">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EleveFactKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EleveFactKey" msprop:DbColumnName="EleveFactKey" msprop:design-time-name="70c4bbb8-d68f-4d65-a8f0-0924fbfc88cd" type="xs:int" />
+                  <xs:element name="EleveKey" msprop:FriendlyName="EleveKey" msprop:DbColumnName="EleveKey" msprop:design-time-name="29c8be64-8bf7-4efe-8c1b-46b8f9b22fa8" type="xs:int" />
+                  <xs:element name="ActiviteKey" msprop:FriendlyName="ActiviteKey" msprop:DbColumnName="ActiviteKey" msprop:design-time-name="7fdbd3c2-dd0c-4556-8bba-26ba61a8a80a" type="xs:int" />
+                  <xs:element name="TempsKey" msprop:FriendlyName="TempsKey" msprop:DbColumnName="TempsKey" msprop:design-time-name="d682b291-3ce8-41f2-9b73-d506fbe5dd2f" type="xs:int" />
+                  <xs:element name="EtablissementKey" msprop:FriendlyName="EtablissementKey" msprop:DbColumnName="EtablissementKey" msprop:design-time-name="a9485f8c-a6d1-4cd4-8799-d69792a01993" type="xs:int" />
+                  <xs:element name="RegionKey" msprop:FriendlyName="RegionKey" msprop:DbColumnName="RegionKey" msprop:design-time-name="1659ed35-200a-455a-b893-05104134c2e4" type="xs:int" />
+                  <xs:element name="NiveauScolaireKey" msprop:FriendlyName="NiveauScolaireKey" msprop:DbColumnName="NiveauScolaireKey" msprop:design-time-name="0baad388-54a0-4763-b5bb-3c5922a29d10" type="xs:int" />
+                  <xs:element name="CategorieActiviteKey" msprop:FriendlyName="CategorieActiviteKey" msprop:DbColumnName="CategorieActiviteKey" msprop:design-time-name="1d4c361d-145f-4b97-8efe-d9dc982a9cb4" type="xs:int" />
+                  <xs:element name="FlagPresenceEleve" msprop:FriendlyName="FlagPresenceEleve" msprop:DbColumnName="FlagPresenceEleve" msprop:design-time-name="ff4a8d4d-c222-42cb-8978-50b3613b8ffd" type="xs:int" />
+                  <xs:element name="FlagPresenceParents" msprop:FriendlyName="FlagPresenceParents" msprop:DbColumnName="FlagPresenceParents" msprop:design-time-name="510d82d9-7e66-4f73-9169-039d9a2d1933" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_EnseignantFact" msprop:DbTableName="EnseignantFact" msprop:FriendlyName="EnseignantFact" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="e1f36c33-bbeb-47bb-99c7-f32f01f6a865">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EnseignantFactKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="EnseignantFactKey" msprop:DbColumnName="EnseignantFactKey" msprop:design-time-name="04ad96ad-31b0-4702-9db5-8bb93ebc7a45" type="xs:int" />
+                  <xs:element name="EnseignantKey" msprop:FriendlyName="EnseignantKey" msprop:DbColumnName="EnseignantKey" msprop:design-time-name="2dfa0478-3a74-4117-adab-f459734129cb" type="xs:int" />
+                  <xs:element name="ActiviteKey" msprop:FriendlyName="ActiviteKey" msprop:DbColumnName="ActiviteKey" msprop:design-time-name="1c97837c-7e8f-43ad-b4de-e4b5df5be1db" type="xs:int" />
+                  <xs:element name="TempsKey" msprop:FriendlyName="TempsKey" msprop:DbColumnName="TempsKey" msprop:design-time-name="545026b2-2171-4c62-ba7f-80506b650c55" type="xs:int" />
+                  <xs:element name="EtablissementKey" msprop:FriendlyName="EtablissementKey" msprop:DbColumnName="EtablissementKey" msprop:design-time-name="15c7c584-5e71-4af9-8397-28a3d1b61356" type="xs:int" />
+                  <xs:element name="RegionKey" msprop:FriendlyName="RegionKey" msprop:DbColumnName="RegionKey" msprop:design-time-name="ab4a6529-c098-4552-8686-a795a2004d0a" type="xs:int" />
+                  <xs:element name="CategorieActiviteKey" msprop:FriendlyName="CategorieActiviteKey" msprop:DbColumnName="CategorieActiviteKey" msprop:design-time-name="dfbecaaf-1563-4497-8865-9e0640ded9cb" type="xs:int" />
+                  <xs:element name="FlagPresence" msprop:FriendlyName="FlagPresence" msprop:DbColumnName="FlagPresence" msprop:design-time-name="6d274f23-dcdc-4bae-90e3-59e85ac8a6ce" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_ActiviteFact" />
+          <xs:field xpath="ActiviteFactKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimActivite_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimActivite" />
+          <xs:field xpath="ActiviteKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimCategorieActivite_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimCategorieActivite" />
+          <xs:field xpath="CategorieActiviteKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimEleve_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimEleve" />
+          <xs:field xpath="EleveKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimEnseignant_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimEnseignant" />
+          <xs:field xpath="EnseignantKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimEtablissement_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimEtablissement" />
+          <xs:field xpath="EtablissementKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimNiveauScolaire_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimNiveauScolaire" />
+          <xs:field xpath="NiveauScolaireKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimRegion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimRegion" />
+          <xs:field xpath="RegionKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimTemps_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimTemps" />
+          <xs:field xpath="TempsKey" />
+        </xs:unique>
+        <xs:unique name="dbo_EleveFact_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_EleveFact" />
+          <xs:field xpath="EleveFactKey" />
+        </xs:unique>
+        <xs:unique name="dbo_EnseignantFact_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_EnseignantFact" />
+          <xs:field xpath="EnseignantFactKey" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="ActiviteFact-DimActivite" msdata:parent="dbo_DimActivite" msdata:child="dbo_ActiviteFact" msdata:parentkey="ActiviteKey" msdata:childkey="ActiviteKey" />
+          <msdata:Relationship name="ActiviteFact-DimTemps" msdata:parent="dbo_DimTemps" msdata:child="dbo_ActiviteFact" msdata:parentkey="TempsKey" msdata:childkey="TempsKey" />
+          <msdata:Relationship name="ActiviteFact-DimEtablissement" msdata:parent="dbo_DimEtablissement" msdata:child="dbo_ActiviteFact" msdata:parentkey="EtablissementKey" msdata:childkey="EtablissementKey" />
+          <msdata:Relationship name="ActiviteFact-DimRegion" msdata:parent="dbo_DimRegion" msdata:child="dbo_ActiviteFact" msdata:parentkey="RegionKey" msdata:childkey="RegionKey" />
+          <msdata:Relationship name="ActiviteFact-DimCategorieActivite" msdata:parent="dbo_DimCategorieActivite" msdata:child="dbo_ActiviteFact" msdata:parentkey="CategorieActiviteKey" msdata:childkey="CategorieActiviteKey" />
+          <msdata:Relationship name="EleveFact-DimEleve" msdata:parent="dbo_DimEleve" msdata:child="dbo_EleveFact" msdata:parentkey="EleveKey" msdata:childkey="EleveKey" />
+          <msdata:Relationship name="EleveFact-DimActivite" msdata:parent="dbo_DimActivite" msdata:child="dbo_EleveFact" msdata:parentkey="ActiviteKey" msdata:childkey="ActiviteKey" />
+          <msdata:Relationship name="EleveFact-DimTemps" msdata:parent="dbo_DimTemps" msdata:child="dbo_EleveFact" msdata:parentkey="TempsKey" msdata:childkey="TempsKey" />
+          <msdata:Relationship name="EleveFact-DimEtablissement" msdata:parent="dbo_DimEtablissement" msdata:child="dbo_EleveFact" msdata:parentkey="EtablissementKey" msdata:childkey="EtablissementKey" />
+          <msdata:Relationship name="EleveFact-DimRegion" msdata:parent="dbo_DimRegion" msdata:child="dbo_EleveFact" msdata:parentkey="RegionKey" msdata:childkey="RegionKey" />
+          <msdata:Relationship name="EleveFact-DimNiveauScolaire" msdata:parent="dbo_DimNiveauScolaire" msdata:child="dbo_EleveFact" msdata:parentkey="NiveauScolaireKey" msdata:childkey="NiveauScolaireKey" />
+          <msdata:Relationship name="EleveFact-DimCategorieActivite" msdata:parent="dbo_DimCategorieActivite" msdata:child="dbo_EleveFact" msdata:parentkey="CategorieActiviteKey" msdata:childkey="CategorieActiviteKey" />
+          <msdata:Relationship name="EnseignantFact-DimEnseignant" msdata:parent="dbo_DimEnseignant" msdata:child="dbo_EnseignantFact" msdata:parentkey="EnseignantKey" msdata:childkey="EnseignantKey" />
+          <msdata:Relationship name="EnseignantFact-DimActivite" msdata:parent="dbo_DimActivite" msdata:child="dbo_EnseignantFact" msdata:parentkey="ActiviteKey" msdata:childkey="ActiviteKey" />
+          <msdata:Relationship name="EnseignantFact-DimTemps" msdata:parent="dbo_DimTemps" msdata:child="dbo_EnseignantFact" msdata:parentkey="TempsKey" msdata:childkey="TempsKey" />
+          <msdata:Relationship name="EnseignantFact-DimEtablissement" msdata:parent="dbo_DimEtablissement" msdata:child="dbo_EnseignantFact" msdata:parentkey="EtablissementKey" msdata:childkey="EtablissementKey" />
+          <msdata:Relationship name="EnseignantFact-DimRegion" msdata:parent="dbo_DimRegion" msdata:child="dbo_EnseignantFact" msdata:parentkey="RegionKey" msdata:childkey="RegionKey" />
+          <msdata:Relationship name="EnseignantFact-DimCategorieActivite" msdata:parent="dbo_DimCategorieActivite" msdata:child="dbo_EnseignantFact" msdata:parentkey="CategorieActiviteKey" msdata:childkey="CategorieActiviteKey" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <Activity_x0020_DW xmlns="" />
+  </Schema>
+</DataSourceView>

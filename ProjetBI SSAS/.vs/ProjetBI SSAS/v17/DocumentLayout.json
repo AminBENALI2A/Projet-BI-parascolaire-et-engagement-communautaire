@@ -1,0 +1,176 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Categorie Activite.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Categorie Activite.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Niveau Scolaire.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Niveau Scolaire.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Activite.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Activite.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Activity DW.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Etablissement.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Etablissement.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Activity DW.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Enseignant.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Enseignant.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Eleve.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Eleve.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Region.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Region.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Temps.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{916FA21F-738C-48C9-ACAD-927955764EC8}|ProjetBI SSAS.dwproj|solutionrelative:Dim Temps.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dim Niveau Scolaire.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Niveau Scolaire.dim",
+              "RelativeDocumentMoniker": "Dim Niveau Scolaire.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Niveau Scolaire.dim [Conception]",
+              "RelativeToolTip": "Dim Niveau Scolaire.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:01:11.143Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dim Activite.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Activite.dim",
+              "RelativeDocumentMoniker": "Dim Activite.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Activite.dim [Conception]",
+              "RelativeToolTip": "Dim Activite.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:00:00.706Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dim Categorie Activite.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Categorie Activite.dim",
+              "RelativeDocumentMoniker": "Dim Categorie Activite.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Categorie Activite.dim [Conception]",
+              "RelativeToolTip": "Dim Categorie Activite.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:00:52.102Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Activity DW.cube [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.cube",
+              "RelativeDocumentMoniker": "Activity DW.cube",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.cube [Conception]*",
+              "RelativeToolTip": "Activity DW.cube [Conception]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-09T12:14:32.925Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dim Etablissement.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Etablissement.dim",
+              "RelativeDocumentMoniker": "Dim Etablissement.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Etablissement.dim [Conception]",
+              "RelativeToolTip": "Dim Etablissement.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:00:34.311Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Activity DW.dsv [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.dsv",
+              "RelativeDocumentMoniker": "Activity DW.dsv",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Activity DW.dsv [Conception]",
+              "RelativeToolTip": "Activity DW.dsv [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-17T11:29:51.669Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dim Enseignant.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Enseignant.dim",
+              "RelativeDocumentMoniker": "Dim Enseignant.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Enseignant.dim [Conception]",
+              "RelativeToolTip": "Dim Enseignant.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:01:17.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dim Eleve.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Eleve.dim",
+              "RelativeDocumentMoniker": "Dim Eleve.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Eleve.dim [Conception]",
+              "RelativeToolTip": "Dim Eleve.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:01:01.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dim Region.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Region.dim",
+              "RelativeDocumentMoniker": "Dim Region.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Region.dim [Conception]",
+              "RelativeToolTip": "Dim Region.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:00:43.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dim Temps.dim [Conception]",
+              "DocumentMoniker": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Temps.dim",
+              "RelativeDocumentMoniker": "Dim Temps.dim",
+              "ToolTip": "C:\\Users\\Amin\\source\\repos\\ProjetBI SSAS\\Dim Temps.dim [Conception]",
+              "RelativeToolTip": "Dim Temps.dim [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T16:00:19.127Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
